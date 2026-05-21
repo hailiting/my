@@ -2,7 +2,7 @@
  * 访问统计 — POST /api/visit（同会话仅上报一次）
  */
 (function () {
-  const API = '/api/visit';
+  const API = window.VISIT_API_URL || '/api/visit';
   const SID_KEY = 'ht_portfolio_sid';
   const SENT_KEY = 'ht_visit_sent';
 
