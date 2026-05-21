@@ -38,6 +38,12 @@ npx vercel dev
 | 模块 | 说明 |
 |------|------|
 | 技术全景图 | 动态技能词云，点击进入技能证据页 |
-| AI 智能介绍 | `POST /api/ai-about` → DeepSeek |
+| AI 智能介绍 | `POST /api/ai-about` → DeepSeek；工具链含 Claude Code / Skills / MCP |
+| 架构专页 | AI Agent + Python Serverless + LangChain/LangGraph + Flutter |
 | 访问统计 | `POST/GET /api/visit`，页脚展示浏览量与访客数 |
-| 项目 / 架构 / 联系 | 多页静态站 |
+| 作品体验 | `experience.html?slug=faypay` 等 — 操作录屏 + 在线体验 |
+| 主站 / 项目 | [PageDrop](https://pagedrop.dev/s/hailiting/) + 架构 / 联系页 |
+
+
+
+把点击 查看相关作品 做成一个单独的页面, 进去体验,最好一个视频展示操作

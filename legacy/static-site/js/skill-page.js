@@ -60,8 +60,9 @@ function initSkillPage() {
     <p class="skill-evidence-label">技术深度</p>
     <ul class="skill-detail-list">${word.depth.map((d) => `<li>${d}</li>`).join('')}</ul>
     <div class="skill-detail-actions">
-      <a class="btn btn-primary" href="${word.cta}">查看全部相关作品</a>
-      ${word.eco === 'ai' ? '<a class="btn btn-outline" href="index.html#about">了解 AI 协作</a>' : ''}
+      <a class="btn btn-primary" href="experience.html?slug=${encodeURIComponent(slug)}">进入体验 · 观看演示</a>
+      <a class="btn btn-outline" href="${word.cta}">查看作品列表</a>
+      ${word.eco === 'ai' ? '<a class="btn btn-outline" href="architecture.html">架构说明</a>' : ''}
     </div>`;
 }
 

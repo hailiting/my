@@ -25,11 +25,15 @@ class ProfileData {
 【声明】本项目全程使用 AI 辅助开发构建，无传统「纯手工从零敲代码」模式。
 
 主要工具链：
-• Cursor — 主力 IDE，负责架构设计、多文件重构与 Agent 式迭代
-• Trae · SOLO Coder 2 — 端到端任务驱动，适合独立模块从 0 到 1 的快速交付
-• GitHub Copilot — 行级补全、样板代码与单元测试草稿
+• Claude Code — 终端/IDE Agent，跨目录重构、测试与文档一体化
+• Cursor — 主力 IDE；Rules / Composer Agent；Skills 固化可复用流程
+• Trae · SOLO Coder 2 — 从 0 到 1 的完整模块交付
+• Skills — Agent 可执行技能包（部署、PR、测试、MCP 集成等）
+• MCP — Model Context Protocol，为 Agent 挂载 GitHub/文档等可验证上下文
 
 AI 参与环节：需求分析 → 技术选型 → 编码实现 → 测试用例 → 重构优化 → 文档撰写
+后端：Vercel Python Serverless（DeepSeek 代理 + 访问统计）
+演进：LangChain / LangGraph 组织有状态 Agent 工作流
 ''';
 
   static const aiPromptTips = '''
@@ -64,9 +68,10 @@ Prompt 工程与 AI 协作心得：
 
 【候选人】海立婷 · 前端开发工程师 · 11 年经验 · 期望杭州 · 25–30K
 【代表作】Faypay 多链加密钱包 App — 一人独立完成含 App 内全部核心功能（Mint/Send/Receive/多链资产/安全交易），非仅官网；faypay.com 可体验
-【技术栈】Flutter/Dart 跨端 · React/RN/TS · Web3（Solidity、DeFi、Ethers.js、多链）· Chrome 钱包插件 OpenWallet · Node.js · AI 辅助开发（Cursor/Trae/全流程）· 性能优化（Webpack/首屏）
-【代表项目】PPToken 多链钱包 · Kaco DeFi(BSC) · Bingo 全链游 · ZG 交易所 · Zytron · 本作品集站点（Flutter Web + AI 模块）
-【工程体系】Riverpod · go_router · Feature-first 架构
+【技术栈】Flutter/Dart 跨端 · React/RN/TS · Web3（Solidity、DeFi、Ethers.js、多链）· Chrome 钱包插件 OpenWallet · Node.js · Python Vercel API
+【AI 工程】Claude Code · Cursor · Trae · Skills · MCP · LangChain/LangGraph 工作流演进 · DeepSeek 服务端代理
+【代表项目】PPToken 多链钱包 · Kaco DeFi(BSC) · Bingo 全链游 · ZG 交易所 · Zytron · 本作品集（PageDrop + Python API）
+【工程体系】Riverpod · go_router · Feature-first；api/ + lib/ Python 分层
 【输出要求】针对用户关键词突出匹配能力；200–350 字；语气专业、可验证、可说服技术负责人；不要列表堆砌；结尾可一句邀请联系
 ''';
 
@@ -123,8 +128,9 @@ Prompt 工程与 AI 协作心得：
           '将大模型与 IDE Agent 深度融入需求分析、编码、测试与重构，'
           '用可验收的 Prompt 约束驱动高质量交付。',
       depthPoints: [
-        'Cursor Agent 多文件重构与架构迭代',
-        'Trae / SOLO Coder 端到端模块交付',
+        'Claude Code 跨目录 Agent 迭代',
+        'Cursor Skills · MCP 可验证上下文',
+        'LangChain / LangGraph 有状态工作流',
         '人机分工：架构与安全边界由人把关',
       ],
       projectIndices: [],
@@ -279,15 +285,67 @@ Prompt 工程与 AI 协作心得：
     return null;
   }
 
-  static const architectureTitle = '架构设计 · 现代化工程体系';
+  static const architectureTitle = '架构设计 · AI + Python + 跨端';
   static const architectureSubtitle =
-      '状态可预测、路由可声明、边界可划分——本作品集站的 Flutter 工程即按此标准搭建，代码结构即能力证明。';
+      'Claude Code / Skills / MCP + Python Serverless + LangChain/LangGraph + Flutter Feature-first；'
+      'PageDrop 静态主站 + Vercel API，代码结构即能力证明。';
 
   static const architectureClosing =
-      '招聘方可直接审查 portfolio_app 目录：从 router、Riverpod Provider 到 features 分包，'
-      '每一层职责清晰，便于协作、测试与长期演进。';
+      '招聘方可审查 architecture 专页与仓库：api/lib Python 后端、legacy 静态站、portfolio_app Flutter 分层，'
+      '以及 AI Agent 工具链与 LangGraph 演进设计。';
 
   static const architectureSections = [
+    ArchitectureSection(
+      title: 'AI 研发 · Claude Code + Skills + MCP',
+      subtitle: '人机协同：约束在架构层，生成在实现层',
+      body:
+          '将 Claude Code、Cursor、Trae 与 Skills/MCP 纳入可验收流程；'
+          'Skills 固化规范，MCP 挂载 GitHub/文档等外部上下文，降低幻觉。',
+      bullets: [
+        'Claude Code：跨目录 Agent 重构与测试',
+        'Cursor：Rules / Composer + Agent Skills',
+        'Trae / SOLO Coder：0→1 模块交付',
+        'MCP：Model Context Protocol 工具链集成',
+      ],
+      codeSample: '''
+需求 → Skills → MCP 上下文 → Claude Code/Cursor 生成
+     → analyze/test → 人 Review → 合并
+''',
+    ),
+    ArchitectureSection(
+      title: 'Python 后端 · Vercel Serverless',
+      subtitle: 'api/ 入口 + lib/ 业务，Key 仅存服务端',
+      body:
+          'DeepSeek 代理与访问统计分离静态站；CORS 支持 PageDrop 跨域调用。',
+      bullets: [
+        'api/ai-about.py · api/visit.py',
+        'lib/deepseek.py · lib/analytics.py · lib/http_util.py',
+        'Upstash Redis 持久化 PV/UV',
+        '503 时前端本地模板回退',
+      ],
+      codeSample: '''
+my/
+├── api/                  # handler 入口
+├── lib/                  # 可单测业务逻辑
+└── legacy/static-site/   # PageDrop 主站
+''',
+    ),
+    ArchitectureSection(
+      title: 'LangChain · LangGraph · Agent 编排',
+      subtitle: '从单次补全到有状态工作流',
+      body:
+          '当前为轻量 DeepSeek 代理链；演进为 LangGraph：路由 → 检索履历 → 生成 → 回退。',
+      bullets: [
+        'LangChain：LCEL 链式 Prompt + 模型',
+        'LangGraph：分支、记忆、可选人工审核节点',
+        '与 MCP 节点联动拉取仓库/文档',
+        'token 预算与事实校验（仅 Profile 内经历）',
+      ],
+      codeSample: '''
+[keyword] → Router → Retrieve(profile)+MCP
+         → Generate(DeepSeek) → Fallback(template)
+''',
+    ),
     ArchitectureSection(
       title: '状态管理 · Riverpod',
       subtitle: '可预测的单向数据流，UI 只订阅状态',
@@ -363,9 +421,9 @@ portfolio_app/lib/
       body: '除架构分层外，配套主题自适应、Web 构建与 CI 部署流水线，保证交付闭环。',
       bullets: [
         'flutter analyze 作为合并前质量门禁',
-        'GitHub Actions：portfolio_app 变更自动 build web',
-        'Vercel / PageDrop：静态站 + Flutter Web 双轨部署',
-        'AI 辅助开发在架构约束下迭代，人不放权安全与边界',
+        'GitHub Actions / test_local.py API 冒烟',
+        'PageDrop 主站 + Vercel Python API（hailiting.vercel.app）',
+        'Claude Code / Skills / MCP 在架构约束下迭代，安全边界由人把关',
       ],
     ),
   ];

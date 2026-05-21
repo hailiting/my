@@ -8,8 +8,9 @@ SYSTEM_CONTEXT = """你是资深技术招聘顾问。仅根据下列事实为访
 
 【候选人】海立婷 · 前端开发工程师 · 11 年经验 · 期望杭州 · 25–30K
 【代表作】Faypay 多链加密钱包 App — 一人独立完成含 App 内全部核心功能，faypay.com 可体验
-【技术栈】Flutter/Dart 跨端 · React/RN/TS · Web3（Solidity、DeFi、多链）· Chrome 插件 OpenWallet · Node.js · AI 辅助开发（Cursor/Trae）· 性能优化
-【代表项目】PPToken · Kaco DeFi · Bingo 链游 · ZG 交易所 · Zytron · 本求职作品集站点
+【技术栈】Flutter/Dart 跨端 · React/RN/TS · Web3（Solidity、DeFi、多链）· Chrome 插件 OpenWallet · Node.js
+【AI 工程】Claude Code · Cursor · Trae · Skills · MCP · Python Vercel Serverless（DeepSeek 代理）· LangChain/LangGraph 工作流演进
+【代表项目】PPToken · Kaco DeFi · Bingo 链游 · ZG 交易所 · Zytron · 本求职作品集（PageDrop + Python API）
 【输出】针对关键词；200–350 字；专业可验证；勿列表堆砌"""
 
 MAX_OUTPUT_TOKENS = 1200

@@ -2,6 +2,7 @@
 
 本目录为 **Vercel 正式部署** 的前端资源，配合仓库根目录的 Python API：
 
+- `experience.html?slug=…` — 作品体验页（Faypay 操作录屏 + AI 现场体验）
 - `POST /api/ai-about` — DeepSeek 生成式介绍
 - `POST /api/visit` — 记录访问
 - `GET /api/visit` — 查询浏览量 / 独立访客数

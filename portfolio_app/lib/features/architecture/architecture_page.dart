@@ -81,18 +81,12 @@ class ArchitecturePage extends StatelessWidget {
                         spacing: 8,
                         runSpacing: 8,
                         children: [
-                          Chip(
-                            avatar: const Icon(Icons.hub, size: 16),
-                            label: const Text('Riverpod'),
-                          ),
-                          Chip(
-                            avatar: const Icon(Icons.route, size: 16),
-                            label: const Text('go_router'),
-                          ),
-                          Chip(
-                            avatar: const Icon(Icons.layers, size: 16),
-                            label: const Text('Feature-first'),
-                          ),
+                          const Chip(label: Text('Claude Code')),
+                          const Chip(label: Text('Skills / MCP')),
+                          const Chip(label: Text('Python API')),
+                          const Chip(label: Text('LangChain')),
+                          const Chip(label: Text('Riverpod')),
+                          const Chip(label: Text('go_router')),
                           ActionChip(
                             label: const Text('查看项目作品'),
                             onPressed: () => context.go('/projects'),

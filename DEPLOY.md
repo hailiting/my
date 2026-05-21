@@ -1,6 +1,6 @@
 # 海立婷 · 求职作品集 — 部署指南（Legacy + Python）
 
-正式站点为 **`legacy/static-site/`** 静态 HTML，由 **Vercel** 托管；**Python Serverless** 提供 AI 与访问统计 API。
+正式站点推荐 **[PageDrop](https://pagedrop.dev/s/hailiting/)**（大陆访问快）；**Vercel** 托管 Python API（DeepSeek、访问统计）。静态源在 **`legacy/static-site/`**，`api-config.js` 在 PageDrop 上自动指向 `https://hailiting.vercel.app`。
 
 ## 1. Vercel 项目设置
 
@@ -78,7 +78,19 @@ curl -X POST http://localhost:3000/api/ai-about \
 curl http://localhost:3000/api/visit
 ```
 
-## 7. 目录说明
+## 7. 作品体验页与录屏
+
+技能详情页按钮 **「进入体验 · 观看演示」** → `experience.html?slug=…`。
+
+录屏位于 `legacy/static-site/assets/video/faypay/`（约 37MB，部署 PageDrop / Vercel 时需一并上传）。
+
+| slug | 录屏 |
+|------|------|
+| `faypay` / `flutter` / `dart` | Swap、插件、钱包核心流程 |
+| `chrome-extension` | 插件录屏 |
+| `ai-coding` 等 | 页内 AI 关键词生成体验 |
+
+## 8. 目录说明
 
 ```
 my/
