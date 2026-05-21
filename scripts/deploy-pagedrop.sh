@@ -23,12 +23,14 @@ if [[ -z "$TOKEN" ]]; then
   exit 1
 fi
 
-ZIP="$(mktemp /tmp/pagedrop-XXXXXX.zip)"
-trap 'rm -f "$ZIP"' EXIT
+# macOS mktemp *.zip 会先建空文件导致 zip -r 失败；用临时目录生成 zip
+WORK="$(mktemp -d /tmp/pagedrop-XXXXXX)"
+ZIP="$WORK/site.zip"
+trap 'rm -rf "$WORK"' EXIT
 
 # PageDrop ZIP 上限 10MB；录屏单独放 Vercel（约 37MB）
 cd "$STATIC"
-zip -r -q "$ZIP" . -x "assets/video/*" "*.DS_Store"
+zip -r -q "$ZIP" . -x "assets/video/*" "*.DS_Store" "README.md" "*.md"
 
 SIZE=$(stat -f%z "$ZIP" 2>/dev/null || stat -c%s "$ZIP")
 if [[ "$SIZE" -gt 10485760 ]]; then
