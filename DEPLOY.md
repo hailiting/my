@@ -18,12 +18,14 @@
 | Name | 必填 | 说明 |
 |------|------|------|
 | `DEEPSEEK_API_KEY` | 推荐 | [DeepSeek](https://platform.deepseek.com/) — AI 智能介绍 |
-| `UPSTASH_REDIS_REST_URL` | 推荐 | 访问统计持久化（见下文） |
-| `UPSTASH_REDIS_REST_TOKEN` | 推荐 | 与 URL 成对 |
+| `KV_REST_API_URL` + `KV_REST_API_TOKEN` | 推荐 | Vercel 绑定 Upstash 后**自动注入**（访问统计） |
+| `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` | 可选 | 与上一组二选一，代码均支持 |
 
 未配置 `DEEPSEEK_API_KEY` 时，前端自动使用本地模板文案（HTTP 503）。
 
-未配置 Upstash 时，统计仅写入本地 `.data/visits.json`（`vercel dev` 可用；**生产环境计数会在函数冷启动后丢失**），请务必绑定 Redis。
+未配置 Redis 时，统计仅写入本地 `.data/visits.json`（`vercel dev` 可用；**生产环境计数会在函数冷启动后丢失**），请务必绑定 Upstash。
+
+**不必手动抄全部变量**：在 Vercel 项目里 **Storage → 连接 Upstash** 后，只要有 `KV_REST_API_URL` 和 `KV_REST_API_TOKEN` 即可。`KV_URL`、`REDIS_URL`、`KV_REST_API_READ_ONLY_TOKEN` 可不加（本站在线统计需要写入权限）。
 
 ### 绑定 Upstash Redis（推荐）
 

@@ -9,11 +9,23 @@ PAGE_VIEWS_KEY = 'portfolio:page_views'
 UNIQUE_SET_KEY = 'portfolio:unique_sessions'
 
 
-def redis_configured() -> bool:
-    return bool(
+def _redis_rest_url() -> str:
+    """兼容 Upstash 直连变量与 Vercel Storage 注入的 KV_* 变量。"""
+    return (
         os.environ.get('UPSTASH_REDIS_REST_URL', '').strip()
-        and os.environ.get('UPSTASH_REDIS_REST_TOKEN', '').strip()
+        or os.environ.get('KV_REST_API_URL', '').strip()
     )
+
+
+def _redis_rest_token() -> str:
+    return (
+        os.environ.get('UPSTASH_REDIS_REST_TOKEN', '').strip()
+        or os.environ.get('KV_REST_API_TOKEN', '').strip()
+    )
+
+
+def redis_configured() -> bool:
+    return bool(_redis_rest_url() and _redis_rest_token())
 
 
 def _local_store_path() -> Path:
@@ -38,8 +50,8 @@ def _local_write(data: dict[str, Any]) -> None:
 
 
 def _upstash(command: list[str]) -> Any:
-    base = os.environ['UPSTASH_REDIS_REST_URL'].rstrip('/')
-    token = os.environ['UPSTASH_REDIS_REST_TOKEN'].strip()
+    base = _redis_rest_url().rstrip('/')
+    token = _redis_rest_token()
     url = f'{base}/{"/".join(command)}'
     req = urllib.request.Request(
         url,
