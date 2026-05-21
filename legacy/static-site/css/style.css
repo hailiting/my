@@ -742,6 +742,148 @@ a:hover { color: var(--accent-2); }
   min-height: 1.2em;
 }
 
+/* 首页 AI 入口卡片 */
+.ai-entry-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(56, 189, 248, 0.06));
+}
+
+.ai-entry-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ai-entry-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ai-entry-desc {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+
+.ai-entry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.ai-entry-tags span {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  background: var(--bg-alt);
+}
+
+/* AI 交流专页 */
+.ai-page-body {
+  background: var(--bg);
+}
+
+.ai-page {
+  padding: calc(var(--nav-h) + 1.5rem) 0 3rem;
+  min-height: 100vh;
+}
+
+.ai-page-container {
+  max-width: 760px;
+}
+
+.ai-page-header {
+  margin-bottom: 1.25rem;
+}
+
+.ai-page-header h1 {
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.ai-page-lead {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.ai-chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: min(52vh, 420px);
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.ai-chat-msg {
+  max-width: 92%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  line-height: 1.65;
+}
+
+.ai-chat-msg p {
+  margin: 0.35rem 0 0;
+}
+
+.ai-chat-msg--user {
+  align-self: flex-end;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.ai-chat-msg--assistant {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.ai-chat-role {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ai-chat-meta {
+  margin-top: 0.5rem !important;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ai-page-panel {
+  max-width: none;
+}
+
+.ai-page-footnote {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.nav-links a.nav-active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .skill-cloud-legend {
   display: flex;
   flex-wrap: wrap;

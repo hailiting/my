@@ -1,5 +1,6 @@
 /**
  * AI 生成式「关于我」— DeepSeek（经 /api/ai-about 代理）或本地模板回退
+ * ai.html：对话流；其他页：单条输出区（若存在 #aiAboutOutput）
  */
 (function () {
   const PROXY = window.AI_PROXY_URL || '/api/ai-about';
@@ -55,34 +56,107 @@
     return { text: data.text, meta, source: 'deepseek' };
   }
 
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function appendChatMessage(role, text, meta) {
+    const thread = document.getElementById('aiChatThread');
+    if (!thread) return null;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'ai-chat-msg ai-chat-msg--' + role;
+
+    const label = role === 'user' ? '你' : 'AI';
+    let html =
+      '<span class="ai-chat-role">' +
+      escapeHtml(label) +
+      '</span><p>' +
+      escapeHtml(text).replace(/\n/g, '<br>') +
+      '</p>';
+    if (meta) {
+      html += '<p class="ai-chat-meta">' + escapeHtml(meta) + '</p>';
+    }
+    wrap.innerHTML = html;
+    thread.appendChild(wrap);
+    thread.scrollTop = thread.scrollHeight;
+    return wrap;
+  }
+
   function initAiAbout() {
     const input = document.getElementById('aiAboutInput');
     const btn = document.getElementById('aiAboutSend');
     const out = document.getElementById('aiAboutOutput');
     const meta = document.getElementById('aiAboutMeta');
     const chips = document.querySelectorAll('[data-ai-keyword]');
-    if (!input || !out) return;
+    const useThread = !!document.getElementById('aiChatThread');
+    if (!input) return;
 
     let loading = false;
+    let pendingAssistant = null;
 
     async function run() {
       const kw = input.value.trim();
       if (!kw || loading) return;
       loading = true;
       btn?.setAttribute('disabled', 'true');
-      out.textContent = 'DeepSeek 正在基于预设背景生成…';
-      if (meta) meta.textContent = '';
+
+      if (useThread) {
+        appendChatMessage('user', kw);
+        pendingAssistant = appendChatMessage('assistant', 'DeepSeek 正在基于预设背景生成…');
+        if (meta) meta.textContent = '';
+      } else if (out) {
+        out.textContent = 'DeepSeek 正在基于预设背景生成…';
+        if (meta) meta.textContent = '';
+      }
 
       try {
         const result = await generate(kw);
-        out.textContent = result.text;
-        if (meta) meta.textContent = result.meta || '';
+        if (useThread && pendingAssistant) {
+          const p = pendingAssistant.querySelector('p');
+          if (p) p.textContent = result.text;
+          if (result.meta) {
+            let m = pendingAssistant.querySelector('.ai-chat-meta');
+            if (!m) {
+              m = document.createElement('p');
+              m.className = 'ai-chat-meta';
+              pendingAssistant.appendChild(m);
+            }
+            m.textContent = result.meta;
+          }
+          document.getElementById('aiChatThread').scrollTop =
+            document.getElementById('aiChatThread').scrollHeight;
+        } else if (out) {
+          out.textContent = result.text;
+        }
+        if (meta) meta.textContent = useThread ? result.meta || '' : result.meta || '';
       } catch (e) {
-        out.textContent = localFallback(kw);
-        if (meta) meta.textContent = `网络异常 · 本地模板 · ${e.message}`;
+        const fallback = localFallback(kw);
+        const errMeta = `网络异常 · 本地模板 · ${e.message}`;
+        if (useThread && pendingAssistant) {
+          const p = pendingAssistant.querySelector('p');
+          if (p) p.textContent = fallback;
+          let m = pendingAssistant.querySelector('.ai-chat-meta');
+          if (!m) {
+            m = document.createElement('p');
+            m.className = 'ai-chat-meta';
+            pendingAssistant.appendChild(m);
+          }
+          m.textContent = errMeta;
+        } else if (out) {
+          out.textContent = fallback;
+        }
+        if (meta) meta.textContent = useThread ? errMeta : errMeta;
       } finally {
         loading = false;
+        pendingAssistant = null;
         btn?.removeAttribute('disabled');
+        input.value = '';
+        input.focus();
       }
     }
 
@@ -96,6 +170,12 @@
         run();
       });
     });
+
+    const q = new URLSearchParams(window.location.search).get('keyword');
+    if (q) {
+      input.value = q;
+      run();
+    }
   }
 
   window.initAiAbout = initAiAbout;

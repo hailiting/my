@@ -2,6 +2,17 @@
  * 作品体验页 — experience.html?slug=faypay
  */
 (function () {
+  const host = location.hostname;
+  const VIDEO_CDN =
+    host === 'pagedrop.dev' || host.endsWith('.pagedrop.dev')
+      ? 'https://hailiting.vercel.app/'
+      : '';
+
+  function videoUrl(src) {
+    if (!src || /^https?:\/\//i.test(src)) return src;
+    return VIDEO_CDN + src.replace(/^\.\//, '');
+  }
+
   function ecoLabel(eco) {
     const map = {
       flutter: '跨端 · Flutter',
@@ -34,6 +45,7 @@
       .join('');
 
     const first = media.videos[0];
+    const firstSrc = videoUrl(first.src);
     return `
       <section class="exp-video-section" aria-label="操作录屏">
         <p class="skill-evidence-label">操作录屏</p>
@@ -49,8 +61,8 @@
             poster=""
             data-active-index="0"
           >
-            <source src="${escapeHtml(first.src)}" type="video/mp4" />
-            您的浏览器不支持视频播放，请<a href="${escapeHtml(first.src)}">下载录屏</a>观看。
+            <source src="${escapeHtml(firstSrc)}" type="video/mp4" />
+            您的浏览器不支持视频播放，请<a href="${escapeHtml(firstSrc)}">下载录屏</a>观看。
           </video>
         </div>
         <p id="expVideoDesc" class="exp-video-desc" style="color:${window.ECO_COLORS[eco] || 'var(--accent)'}">${escapeHtml(first.desc || '')}</p>
@@ -139,7 +151,7 @@ fetch('/api/ai-about', {
         tab.setAttribute('aria-selected', 'true');
 
         video.pause();
-        video.src = clip.src;
+        video.src = videoUrl(clip.src);
         video.load();
         if (desc) desc.textContent = clip.desc || '';
         video.setAttribute('data-active-index', String(i));
@@ -154,6 +166,11 @@ fetch('/api/ai-about', {
     const slug = new URLSearchParams(window.location.search).get('slug');
     if (slug === 'architecture') {
       window.location.replace('architecture.html');
+      return;
+    }
+    const aiSlugs = ['ai-coding', 'claude-code', 'mcp-skills', 'langchain', 'trae-cursor'];
+    if (slug && (aiSlugs.includes(slug) || window.EXPERIENCE_ALIAS?.[slug] === 'ai-coding')) {
+      window.location.replace('ai.html');
       return;
     }
 

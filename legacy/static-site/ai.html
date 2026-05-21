@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="海立婷作品集 — AI 智能介绍。输入技术关键词，DeepSeek 基于真实履历实时生成第三方视角介绍。" />
+  <title>AI 交流 · 智能介绍 | 海立婷</title>
+  <link rel="stylesheet" href="./css/style.css?v=20260529" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>海</text></svg>" />
+</head>
+<body class="ai-page-body">
+  <nav class="nav scrolled">
+    <a href="./index.html" class="nav-logo">海立婷</a>
+    <ul class="nav-links">
+      <li><a href="./index.html#skill-map">全景图</a></li>
+      <li><a href="./ai.html" class="nav-active">AI 交流</a></li>
+      <li><a href="./index.html#projects">项目</a></li>
+      <li><a href="./index.html#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <main class="ai-page">
+    <div class="container ai-page-container">
+      <header class="ai-page-header">
+        <a href="./index.html" class="skill-detail-back">← 返回首页</a>
+        <h1 data-i18n="ai.page.title">AI 交流 · 智能介绍</h1>
+        <p class="ai-page-lead" data-i18n-html="ai.page.lead">
+          输入任意<strong>技术关键词</strong>（如区块链、Flutter、Claude Code），由 <strong>DeepSeek</strong> 根据我的真实履历生成针对性介绍。单次请求 token 控制在 <strong>1 万以内</strong>。
+        </p>
+      </header>
+
+      <div id="aiChatThread" class="ai-chat-thread" aria-live="polite">
+        <div class="ai-chat-msg ai-chat-msg--assistant">
+          <span class="ai-chat-role" data-i18n="ai.page.role.bot">AI</span>
+          <p data-i18n="ai.page.welcome">你好，我是基于海立婷履历配置的 AI 介绍助手。点击下方标签或输入关键词开始交流。</p>
+        </div>
+      </div>
+
+      <div class="ai-about-panel ai-page-panel">
+        <div class="ai-about-chips">
+          <button type="button" class="ai-about-chip" data-ai-keyword="区块链">区块链</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="Flutter 跨端">Flutter 跨端</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="AI 编程">AI 编程</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="前端性能">前端性能</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="架构设计">架构设计</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="Claude Code">Claude Code</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="LangChain">LangChain</button>
+          <button type="button" class="ai-about-chip" data-ai-keyword="Skills / MCP">Skills / MCP</button>
+        </div>
+        <div class="ai-about-input-row">
+          <input id="aiAboutInput" type="text" data-i18n-placeholder="ai.page.placeholder" placeholder="输入关键词，按 Enter 发送…" maxlength="48" autocomplete="off" />
+          <button type="button" id="aiAboutSend" class="btn btn-primary" data-i18n="ai.page.send">发送</button>
+        </div>
+        <p id="aiAboutMeta" class="ai-about-meta" aria-live="polite"></p>
+      </div>
+
+      <p class="ai-page-footnote" data-i18n="ai.page.footnote">由 Vercel Python 代理 DeepSeek；未配置 Key 时自动使用本地模板。API 不可达时同样回退。</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 海立婷 · 前端开发工程师</p>
+  </footer>
+
+  <script src="./js/api-config.js?v=20260527"></script>
+  <script src="./js/ai-about.js?v=20260529"></script>
+  <script src="./js/visit-tracker.js?v=20260527"></script>
+</body>
+</html>

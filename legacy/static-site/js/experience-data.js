@@ -53,11 +53,10 @@ window.EXPERIENCE_MEDIA = {
     liveLabel: '配合 Faypay 生态体验',
   },
   'ai-coding': {
-    headline: 'AI 智能介绍 · 现场体验',
-    intro: '无需安装，在下方输入关键词，由 DeepSeek（Vercel Python 代理）实时生成介绍。',
-    demo: 'ai',
-    liveUrl: 'architecture.html',
-    liveLabel: '查看 AI + Python 架构',
+    headline: 'AI 智能介绍',
+    intro: '在独立 AI 交流页输入关键词，由 DeepSeek（Vercel Python 代理）实时生成介绍。',
+    liveUrl: 'ai.html',
+    liveLabel: '进入 AI 交流页',
   },
   'python-api': {
     headline: 'Python API · 接口体验',

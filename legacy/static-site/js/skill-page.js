@@ -62,7 +62,7 @@ function initSkillPage() {
     <div class="skill-detail-actions">
       <a class="btn btn-primary" href="experience.html?slug=${encodeURIComponent(slug)}">进入体验 · 观看演示</a>
       <a class="btn btn-outline" href="${word.cta}">查看作品列表</a>
-      ${word.eco === 'ai' ? '<a class="btn btn-outline" href="architecture.html">架构说明</a>' : ''}
+      ${word.eco === 'ai' ? '<a class="btn btn-outline" href="ai.html">进入 AI 交流</a><a class="btn btn-outline" href="architecture.html">架构说明</a>' : ''}
     </div>`;
 }
 
