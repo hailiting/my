@@ -43,14 +43,22 @@
 
 实现代码：`api/ai-about.py`、`api/visit.py`，共享逻辑在 `lib/`。
 
-## 4. 部署
+## 4. 部署（双轨）
+
+| 目标 | 命令 |
+|------|------|
+| **Vercel**（API + 完整静态含录屏） | `npx vercel --prod --yes` |
+| **PageDrop** `/s/hailiting` | `bash scripts/deploy-pagedrop.sh` |
+| 一键（需 PageDrop token） | `bash scripts/deploy-all.sh` |
+
+PageDrop 更新需 `.env` 中的 `PAGEDROP_DELETE_TOKEN`（创建站点时 API 返回，只显示一次）。ZIP 上限 10MB，脚本默认**不上传** `assets/video/`（录屏走 Vercel；PageDrop 体验页会从 `hailiting.vercel.app` 拉视频）。
 
 ```bash
 # 仓库根目录
-npx vercel --yes
+npx vercel --prod --yes
 ```
 
-或在 Vercel 控制台连接 GitHub 后点 **Deploy**。
+或在 Vercel 控制台连接 GitHub 后点 **Deploy**（已连接 GitHub 时 push `main` 也会自动部署）。
 
 ## 5. 验证
 
