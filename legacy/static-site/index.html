@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="海立婷 — 11年前端开发工程师，精通 AI 辅助开发（Cursor/Trae），专注 Web3、区块链与跨平台移动开发。" />
+  <meta name="keywords" content="海立婷,Hailiting,前端,Frontend,Web3,区块链,AI,Cursor,React,Flutter" />
+  <title>海立婷 | 前端开发工程师</title>
+  <link rel="stylesheet" href="./css/style.css?v=20260525" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>海</text></svg>" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">海立婷</a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#skill-map">全景图</a></li>
+      <li><a href="#about" data-i18n="nav.about">关于</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">技能</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">经历</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">项目</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-badge" data-i18n="hero.badge">前端开发工程师 · 11 年经验 · AI 辅助开发</p>
+      <h1 class="hero-title">海立婷</h1>
+      <p class="hero-subtitle" data-i18n-html="hero.subtitle">
+        <strong>3 秒建立技术印象：</strong>向下进入「技术全景图」，点击任意关键词即可查看对应<strong>硬核项目证据</strong>。代表作 <strong><a href="https://faypay.com/" target="_blank" rel="noopener">Faypay</a></strong> 多链钱包 App（<strong>一人开发</strong>）；精通 <strong>AI 编程</strong>、<strong>Web3</strong> 与 Flutter 跨端。
+      </p>
+      <div class="hero-meta">
+        <span data-i18n="hero.city">📍 期望城市：杭州</span>
+        <span data-i18n="hero.salary">💼 期望薪资：25–30K</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.contact">联系我</a>
+        <a href="#experience" class="btn btn-outline" data-i18n="hero.cta.experience">查看经历</a>
+        <a href="https://faypay.com/" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="hero.cta.faypay">体验 Faypay 钱包</a>
+      </div>
+      <div class="hero-contact">
+        <a href="tel:17767266371">177 6726 6371</a>
+        <span class="sep">·</span>
+        <a href="mailto:hailiting@yeah.net">hailiting@yeah.net</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">11+</span><span class="stat-label" data-i18n="stat.exp">年经验</span></div>
+      <div class="stat"><span class="stat-num">8+</span><span class="stat-label" data-i18n="stat.fe">年前端</span></div>
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-label" data-i18n="stat.game">年链游</span></div>
+      <div class="stat"><span class="stat-num">3+</span><span class="stat-label" data-i18n="stat.chain">年区块链</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-alt" id="skill-map">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">01</span> 我的技术全景图</h2>
+        <p class="skill-cloud-lead">
+          可点击、会动的<strong>技术标签墙</strong>（不是普通图表）。下面这些是我日常开发中高频使用的技术与领域——点击任意词，立刻查看相关实战作品与解读。
+        </p>
+        <p class="skill-cloud-hint">小提示：词越大，代表经验越深；颜色相同的词属于同一技术生态。</p>
+        <div class="skill-canvas-wrap skill-cloud-wrap">
+          <div id="skillCloudMount" class="skill-cloud-mount" role="navigation" aria-label="可点击的技术技能词云，词越大经验越深"></div>
+          <nav class="skill-cloud-fallback" aria-label="技能标签（词云不可用时的备用）">
+            <a href="./skill.html?slug=flutter">Flutter</a>
+            <a href="./skill.html?slug=faypay">Faypay</a>
+            <a href="./skill.html?slug=ai-coding">AI 编程</a>
+            <a href="./architecture.html">架构设计</a>
+            <a href="./skill.html?slug=solidity">Solidity</a>
+            <a href="./skill.html?slug=react">React</a>
+          </nav>
+        </div>
+        <div class="skill-cloud-legend">
+          <span><i class="dot dot-flutter"></i>跨端 · Flutter</span>
+          <span><i class="dot dot-arch"></i>工程架构</span>
+          <span><i class="dot dot-ai"></i>AI 研发</span>
+          <span><i class="dot dot-web"></i>Web 前端</span>
+          <span><i class="dot dot-chain"></i>区块链</span>
+          <span><i class="dot dot-tool"></i>工程 / 工具</span>
+          <span><i class="dot dot-soft"></i>综合素养</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">✨</span> AI 智能介绍 · DeepSeek</h2>
+        <p class="skill-cloud-lead">访客输入技术关键词（如「区块链」「前端性能」），大模型基于我的真实履历<strong>实时生成</strong>针对性介绍。单次对话 token 控制在 <strong>1 万以内</strong>。</p>
+        <div class="ai-about-panel">
+          <div class="ai-about-chips">
+            <button type="button" class="ai-about-chip" data-ai-keyword="区块链">区块链</button>
+            <button type="button" class="ai-about-chip" data-ai-keyword="Flutter 跨端">Flutter 跨端</button>
+            <button type="button" class="ai-about-chip" data-ai-keyword="AI 编程">AI 编程</button>
+            <button type="button" class="ai-about-chip" data-ai-keyword="前端性能">前端性能</button>
+            <button type="button" class="ai-about-chip" data-ai-keyword="架构设计">架构设计</button>
+          </div>
+          <div class="ai-about-input-row">
+            <input id="aiAboutInput" type="text" placeholder="输入关键词…" maxlength="48" autocomplete="off" />
+            <button type="button" id="aiAboutSend" class="btn btn-primary">生成</button>
+          </div>
+          <p id="aiAboutOutput" class="ai-about-output">输入关键词，由 DeepSeek 生成第三方视角个人介绍…</p>
+          <p id="aiAboutMeta" class="ai-about-meta"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">02</span> <span data-i18n="section.about">个人优势</span></h2>
+        <article class="ai-highlight">
+          <div class="ai-highlight-icon">✨</div>
+          <div>
+            <h3 data-i18n="ai.title">AI 编程 · 研发效能驱动</h3>
+            <p data-i18n-html="ai.desc">AI 编程经验丰富，精通主流 AI 工具与大模型辅助开发。具备将 <strong>Trae / Cursor</strong> 与大模型能力深度融入需求分析、编码、测试及重构全流程的实战经验，持续驱动研发效能提升。</p>
+          </div>
+        </article>
+        <div class="advantages-grid">
+          <article class="advantage-card">
+            <div class="advantage-icon">📱</div>
+            <h3 data-i18n="adv.mobile.t">跨平台移动开发</h3>
+            <p data-i18n="adv.mobile.d">4 年 React Native / Flutter 经验，高效实现跨平台应用性能优化与用户体验提升。</p>
+          </article>
+          <article class="advantage-card">
+            <div class="advantage-icon">⛓️</div>
+            <h3 data-i18n="adv.chain.t">区块链开发</h3>
+            <p data-i18n="adv.chain.d">3 年 Solidity 智能合约与以太坊 DeFi；熟悉 Solana 链上开发（Rust）、智能合约编写与钱包集成。</p>
+          </article>
+          <article class="advantage-card">
+            <div class="advantage-icon">👛</div>
+            <h3 data-i18n="adv.wallet.t">谷歌钱包插件开发</h3>
+            <p data-i18n="adv.wallet.d">主导多链浏览器插件（OpenWallet）开发，兼容 Solana、EVM、BTC，有效提升支付安全性与操作体验。</p>
+          </article>
+          <article class="advantage-card">
+            <div class="advantage-icon">🎮</div>
+            <h3 data-i18n="adv.game.t">区块链游戏</h3>
+            <p data-i18n="adv.game.d">5 年链游经验，React + ethers.js 开发逻辑层；支持 ETH / NFT 交互及 Solana 链上资产操作。</p>
+          </article>
+          <article class="advantage-card">
+            <div class="advantage-icon">⚛️</div>
+            <h3 data-i18n="adv.fe.t">前端开发</h3>
+            <p data-i18n="adv.fe.d">8 年 Flutter、HTML5、CSS3、JS/TS；专注 React 大型项目，组件化与工程化实践丰富。</p>
+          </article>
+          <article class="advantage-card">
+            <div class="advantage-icon">🖥️</div>
+            <h3 data-i18n="adv.be.t">框架经验</h3>
+            <p data-i18n="adv.be.d">Node.js + Express/Koa 构建高性能后端，注重代码质量与性能优化，保障快速迭代与系统稳定。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> <span data-i18n="section.skills">技术栈</span></h2>
+        <div class="skills-wrap">
+          <div class="skill-group">
+            <h3 data-i18n="skill.ai">AI 辅助开发</h3>
+            <div class="tags">
+              <span>Cursor</span><span>Trae</span><span data-i18n="tag.llm">大模型</span>
+              <span data-i18n="tag.aicode">AI 编程</span><span data-i18n="tag.req">需求分析</span><span data-i18n="tag.test">自动化测试</span><span data-i18n="tag.refactor">代码重构</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 data-i18n="skill.fe">前端 & 移动端</h3>
+            <div class="tags">
+              <span>React</span><span>TypeScript</span><span>Flutter</span>
+              <span>React Native</span><span>HTML5 / CSS3</span><span>Ethers.js</span>
+              <span>Cocos2d</span><span>Electron</span><span>Webpack</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 data-i18n="skill.web3">区块链 & Web3</h3>
+            <div class="tags">
+              <span>Solidity</span><span>Rust (Solana)</span><span>DeFi</span>
+              <span data-i18n="tag.contract">智能合约</span><span>NFT</span><span data-i18n="tag.multichain">多链钱包</span>
+              <span>EVM</span><span>Solana</span><span>BTC</span><span>TRON</span><span>TON</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 data-i18n="skill.be">后端 & 工具</h3>
+            <div class="tags">
+              <span>Node.js</span><span>Express</span><span>Koa</span>
+              <span data-i18n="tag.im">IM 客户端</span><span data-i18n="tag.cache">接口缓存</span><span data-i18n="tag.perf">性能优化</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">04</span> <span data-i18n="section.experience">工作经历</span></h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date" data-i18n="exp1.date">2025.03 — 至今</div>
+            <div class="timeline-body">
+              <h3>浙江学神科技有限公司</h3>
+              <p class="role" data-i18n="exp1.role">前端开发工程师</p>
+              <ul>
+                <li data-i18n="exp1.b1">多链插件浏览器开发（OpenWallet），兼容 Solana、EVM、BTC</li>
+                <li data-i18n="exp1.b2">多链应用（Flutter），支持 Solana、EVM、BTC、TRON、TON</li>
+                <li data-i18n="exp1.b3">DeFi 新产品设计与实现；IM 客户端开发与维护</li>
+              </ul>
+              <p class="highlight" data-i18n="exp1.h">主导多个产品从零到一上线；通过团队培训提升整体开发水平</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date" data-i18n="exp2.date">2024.01 — 2025.03</div>
+            <div class="timeline-body">
+              <h3>杭州创璞科技有限公司</h3>
+              <p class="role" data-i18n="exp2.role">大前端</p>
+              <ul>
+                <li data-i18n="exp2.b1">多链钱包插件（EVM、Solana、BTC 等）</li>
+                <li data-i18n="exp2.b2">Bingo 全链游：React + Ethers.js，Web / H5 / Telegram 机器人</li>
+                <li data-i18n="exp2.b3">Cocos 游戏系列：生存、合成大鲸鱼、贪吃蛇、飞行棋</li>
+                <li data-i18n="exp2.b4">Zytron 平台前端，TVL 功能与性能优化</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date" data-i18n="exp3.date">2021.11 — 2023.12</div>
+            <div class="timeline-body">
+              <h3>杭州对位网络技术有限公司</h3>
+              <p class="role" data-i18n="exp3.role">前端开发工程师</p>
+              <ul>
+                <li data-i18n="exp3.b1">React / RN 独立搭建多个 Web3 前端架构</li>
+                <li data-i18n="exp3.b2">从零到一完成多个 Web3 项目；Node.js 自主后端开发</li>
+                <li data-i18n="exp3.b3">负责前端打包上线、DApp 体验与视觉优化</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date" data-i18n="exp4.date">2018.11 — 2021.10</div>
+            <div class="timeline-body">
+              <h3>杭州云创想网络科技有限公司</h3>
+              <p class="role" data-i18n="exp4.role">前端开发工程师</p>
+              <ul>
+                <li data-i18n="exp4.b1">主导 Web 全模块从零架构；Webpack 打包提速 30%、体积减 20%</li>
+                <li data-i18n="exp4.b2">协助 RN 向 Flutter 迁移；React + Electron 桌面端封装</li>
+                <li data-i18n="exp4.b3">首屏与接口缓存优化；协助运维提升加载速度</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">05</span> <span data-i18n="section.projects">代表项目</span></h2>
+        <div class="projects-grid">
+          <article class="project-card project-card-featured">
+            <span class="project-tag" data-i18n="proj.faypay.tag">多链钱包 App · 一人开发</span>
+            <h3><a href="https://faypay.com/" target="_blank" rel="noopener">Faypay Crypto Wallet</a></h3>
+            <p data-i18n-html="proj.faypay.desc">独立完成加密钱包全套产品：含 <strong>App 内核心功能</strong>（Mint / Send / Receive / Request、多链资产管理、安全交易），非仅官网。支持 Openverse、Ethereum、BNB Chain、Polygon 等。<a href="https://faypay.com/" target="_blank" rel="noopener">faypay.com</a> 可下载体验。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.kaco.tag">DeFi · BSC · 2022 — 2025</span>
+            <h3>Kaco DeFi</h3>
+            <p data-i18n="proj.kaco.desc">波卡链 Kaco 智能合约编写与测试；DeFi Farm / Pool；NFT 碎片化；数据隐私与 KYC 验证模块。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.avault.tag">2022.07 — 2022.12</span>
+            <h3>Avault</h3>
+            <p data-i18n="proj.avault.desc">支持多链多币种的 Vault 复投项目前端开发。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.pp.tag">Flutter · 2020 — 2022</span>
+            <h3>PPToken Wallet</h3>
+            <p data-i18n="proj.pp.desc">助记词导入/生成、多链余额与划转、NFT 展示、Uniswap / Caver / Pancake 等 DApp 交互。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.zg.tag">RN · 2016 — 2020</span>
+            <h3>ZG Exchange</h3>
+            <p data-i18n="proj.zg.desc">现货/期货/期权/永续合约、资产管理、行情分析、去中心化冷钱包集成。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.bingo.tag">链游</span>
+            <h3>Bingo On-Chain Game</h3>
+            <p data-i18n="proj.bingo.desc">Ethereum 智能合约、Ethers.js 链上交互，响应式 Web / H5 / Telegram 多端接入。</p>
+          </article>
+          <article class="project-card">
+            <span class="project-tag" data-i18n="proj.ow.tag">插件 · 多链</span>
+            <h3>OpenWallet Extension</h3>
+            <p data-i18n="proj.ow.desc">多链插件钱包，Solana / EVM / BTC 生态，稳定功能与完整链路支持。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">06</span> <span data-i18n="section.education">教育背景</span></h2>
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <h3 data-i18n="edu.school">浙江工业大学</h3>
+            <p data-i18n="edu.degree">本科 · 影视动画 · 2011 — 2015</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">07</span> <span data-i18n="section.contact">联系我</span></h2>
+        <p class="contact-lead" data-i18n="contact.lead">正在寻找杭州地区的前端 / Web3 机会，欢迎招聘方或合作方联系。</p>
+        <div class="contact-cards">
+          <a href="tel:17767266371" class="contact-card">
+            <span class="contact-label" data-i18n="contact.phone">电话</span>
+            <span class="contact-value">177 6726 6371</span>
+          </a>
+          <a href="mailto:hailiting@yeah.net" class="contact-card">
+            <span class="contact-label" data-i18n="contact.email">邮箱</span>
+            <span class="contact-value">hailiting@yeah.net</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer">© 2026 海立婷 · 前端开发工程师</p>
+    <p id="visitStats" class="visit-stats" hidden></p>
+  </footer>
+
+  <script src="./js/i18n.js?v=20260526"></script>
+  <script src="./js/skill-data.js?v=20260526"></script>
+  <script src="./js/skill-cloud.js?v=20260526"></script>
+  <script src="./js/ai-about.js?v=20260526"></script>
+  <script src="./js/visit-tracker.js?v=20260526"></script>
+  <script src="./js/main.js?v=20260526"></script>
+</body>
+</html>

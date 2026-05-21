@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="海立婷 — 架构设计：Riverpod 状态管理、go_router 声明式路由、Feature-first 分层架构。" />
+  <title>架构设计 · 现代化工程体系 | 海立婷</title>
+  <link rel="stylesheet" href="./css/style.css?v=20260523" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>海</text></svg>" />
+</head>
+<body>
+  <nav class="nav scrolled">
+    <a href="./index.html" class="nav-logo">海立婷</a>
+    <ul class="nav-links">
+      <li><a href="./index.html#skill-map">全景图</a></li>
+      <li><a href="./index.html#projects">项目</a></li>
+      <li><a href="./index.html#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <main class="skill-detail-page architecture-page">
+    <div class="container skill-detail-container">
+      <header class="skill-detail-header">
+        <a href="./index.html#skill-map" class="skill-detail-back">← 返回技术全景图</a>
+        <h1>架构设计 · 现代化工程体系</h1>
+        <span class="skill-detail-badge" style="border-color:#818cf8;color:#818cf8">工程架构</span>
+      </header>
+      <p class="skill-detail-text arch-lead">
+        状态可预测、路由可声明、边界可划分——本作品集 Flutter 工程按此标准搭建，<strong>代码结构即能力证明</strong>。
+      </p>
+
+      <article class="arch-section-card">
+        <h2><span class="section-num">01</span> 状态管理 · Riverpod</h2>
+        <p class="arch-sub">可预测的单向数据流，UI 只订阅状态</p>
+        <p>使用 <code>flutter_riverpod</code> 管理主题、路由与技能雷达权重。Provider 让依赖显式、可测试、可组合，避免 setState 散落各处。</p>
+        <ul class="arch-list">
+          <li>StateProvider：雷达权重等轻量 UI 状态</li>
+          <li>Provider：GoRouter 等依赖注入</li>
+          <li>ref.watch / ref.read 区分重建与一次性读取</li>
+          <li>状态定义靠近 Feature，Widget 只负责展示</li>
+        </ul>
+        <pre class="arch-code">// features/skills/skills_page.dart
+final radarWeightsProvider = StateProvider&lt;List&lt;double&gt;&gt;((ref) =&gt; ...);
+final weights = ref.watch(radarWeightsProvider);</pre>
+      </article>
+
+      <article class="arch-section-card">
+        <h2><span class="section-num">02</span> 路由 · go_router</h2>
+        <p class="arch-sub">声明式路由表 + 深度链接</p>
+        <p>统一管理站内路径，Shell 布局常驻导航，路径参数同步浏览器地址栏，便于分享。</p>
+        <ul class="arch-list">
+          <li>ShellRoute：AppShell 包裹各业务页</li>
+          <li><code>/skill/:slug</code> — 技能证据深度链接</li>
+          <li><code>/architecture</code> — 本架构说明页</li>
+          <li>navigatorKey + context.go 可编程导航</li>
+        </ul>
+        <pre class="arch-code">GoRoute(path: '/skill/:slug', builder: ... SkillDetailPage),
+GoRoute(path: '/architecture', builder: ... ArchitecturePage),</pre>
+      </article>
+
+      <article class="arch-section-card">
+        <h2><span class="section-num">03</span> 代码架构 · Feature-first</h2>
+        <p class="arch-sub">分层清晰，代码即作品</p>
+        <p>Feature-first + Clean 思想：core 放领域数据，features 垂直切业务，widgets 放可复用 UI，router 独立配置。</p>
+        <ul class="arch-list">
+          <li><code>core/</code> — 常量、主题、通用能力</li>
+          <li><code>features/</code> — home / skills / architecture / projects …</li>
+          <li><code>widgets/</code> — 词云、雷达图、项目卡片</li>
+          <li><code>router/</code> — go_router 单一入口</li>
+        </ul>
+        <pre class="arch-code">portfolio_app/lib/
+├── core/
+├── features/architecture/  ← 本页
+├── widgets/
+└── router/app_router.dart</pre>
+      </article>
+
+      <article class="arch-section-card">
+        <h2><span class="section-num">04</span> 工程化实践</h2>
+        <p class="arch-sub">可构建、可部署、可演进</p>
+        <ul class="arch-list">
+          <li>flutter analyze 合并前质量门禁</li>
+          <li>GitHub Actions 自动 build web</li>
+          <li>Vercel / PageDrop 双轨部署</li>
+          <li>AI 辅助在架构约束下迭代，安全边界由人把关</li>
+        </ul>
+      </article>
+
+      <div class="skill-detail-actions">
+      <a class="btn btn-primary" href="./index.html#projects">查看项目作品</a>
+      <a class="btn btn-outline" href="./index.html#about">技术宣言</a>
+      </div>
+    </div>
+  </main>
+  <script src="./js/visit-tracker.js?v=20260526"></script>
+</body>
+</html>

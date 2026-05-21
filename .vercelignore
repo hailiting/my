@@ -1,0 +1,9 @@
+portfolio_app/
+.dart_tool/
+**/build/
+.git/
+.data/
+*.pdf
+node_modules/
+.DS_Store
+legacy/static-site/.vercel

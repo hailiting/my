@@ -2,3 +2,9 @@
 .vercel
 .netlify
 node_modules/
+.env
+.env.*
+!.env.example
+**/build/
+.dart_tool/
+.data/

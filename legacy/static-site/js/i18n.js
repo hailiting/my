@@ -1,0 +1,244 @@
+const I18N = {
+  zh: {
+    'meta.title': '海立婷 | 前端开发工程师',
+    'meta.description': '海立婷 — 11年前端开发工程师，精通 AI 辅助开发，专注 Web3、区块链与跨平台移动开发。',
+    'nav.menu': '菜单',
+    'nav.about': '关于',
+    'nav.skills': '技能',
+    'nav.experience': '经历',
+    'nav.projects': '项目',
+    'nav.contact': '联系',
+    'hero.badge': '前端开发工程师 · 11 年经验 · AI 辅助开发',
+    'hero.subtitle': '代表作 <strong><a href="https://faypay.com/" target="_blank" rel="noopener">Faypay</a></strong> 多链钱包 App（<strong>一人开发</strong>，含 App 内全部核心功能）；同时精通 <strong>AI 编程</strong>、<strong>Web3</strong> 与跨平台移动开发。',
+    'hero.city': '📍 期望城市：杭州',
+    'hero.salary': '💼 期望薪资：25–30K',
+    'hero.cta.contact': '联系我',
+    'hero.cta.experience': '查看经历',
+    'hero.cta.faypay': '体验 Faypay 钱包',
+    'stat.exp': '年经验',
+    'stat.fe': '年前端',
+    'stat.game': '年链游',
+    'stat.chain': '年区块链',
+    'section.about': '个人优势',
+    'section.skills': '技术栈',
+    'section.experience': '工作经历',
+    'section.projects': '代表项目',
+    'section.education': '教育背景',
+    'section.contact': '联系我',
+    'ai.title': 'AI 编程 · 研发效能驱动',
+    'ai.desc': 'AI 编程经验丰富，精通主流 AI 工具与大模型辅助开发。具备将 <strong>Trae / Cursor</strong> 与大模型能力深度融入需求分析、编码、测试及重构全流程的实战经验，持续驱动研发效能提升。',
+    'adv.mobile.t': '跨平台移动开发',
+    'adv.mobile.d': '4 年 React Native / Flutter 经验，高效实现跨平台应用性能优化与用户体验提升。',
+    'adv.chain.t': '区块链开发',
+    'adv.chain.d': '3 年 Solidity 智能合约与以太坊 DeFi；熟悉 Solana 链上开发（Rust）、智能合约编写与钱包集成。',
+    'adv.wallet.t': '谷歌钱包插件开发',
+    'adv.wallet.d': '主导多链浏览器插件（OpenWallet）开发，兼容 Solana、EVM、BTC，有效提升支付安全性与操作体验。',
+    'adv.game.t': '区块链游戏',
+    'adv.game.d': '5 年链游经验，React + ethers.js 开发逻辑层；支持 ETH / NFT 交互及 Solana 链上资产操作。',
+    'adv.fe.t': '前端开发',
+    'adv.fe.d': '8 年 Flutter、HTML5、CSS3、JS/TS；专注 React 大型项目，组件化与工程化实践丰富。',
+    'adv.be.t': '框架经验',
+    'adv.be.d': 'Node.js + Express/Koa 构建高性能后端，注重代码质量与性能优化，保障快速迭代与系统稳定。',
+    'skill.ai': 'AI 辅助开发',
+    'skill.fe': '前端 & 移动端',
+    'skill.web3': '区块链 & Web3',
+    'skill.be': '后端 & 工具',
+    'tag.llm': '大模型',
+    'tag.aicode': 'AI 编程',
+    'tag.req': '需求分析',
+    'tag.test': '自动化测试',
+    'tag.refactor': '代码重构',
+    'tag.contract': '智能合约',
+    'tag.multichain': '多链钱包',
+    'tag.im': 'IM 客户端',
+    'tag.cache': '接口缓存',
+    'tag.perf': '性能优化',
+    'exp1.date': '2025.03 — 至今',
+    'exp1.role': '前端开发工程师',
+    'exp1.b1': '多链插件浏览器开发（OpenWallet），兼容 Solana、EVM、BTC',
+    'exp1.b2': '多链应用（Flutter），支持 Solana、EVM、BTC、TRON、TON',
+    'exp1.b3': 'DeFi 新产品设计与实现；IM 客户端开发与维护',
+    'exp1.h': '主导多个产品从零到一上线；通过团队培训提升整体开发水平',
+    'exp2.date': '2024.01 — 2025.03',
+    'exp2.role': '大前端',
+    'exp2.b1': '多链钱包插件（EVM、Solana、BTC 等）',
+    'exp2.b2': 'Bingo 全链游：React + Ethers.js，Web / H5 / Telegram 机器人',
+    'exp2.b3': 'Cocos 游戏系列：生存、合成大鲸鱼、贪吃蛇、飞行棋',
+    'exp2.b4': 'Zytron 平台前端，TVL 功能与性能优化',
+    'exp3.date': '2021.11 — 2023.12',
+    'exp3.role': '前端开发工程师',
+    'exp3.b1': 'React / RN 独立搭建多个 Web3 前端架构',
+    'exp3.b2': '从零到一完成多个 Web3 项目；Node.js 自主后端开发',
+    'exp3.b3': '负责前端打包上线、DApp 体验与视觉优化',
+    'exp4.date': '2018.11 — 2021.10',
+    'exp4.role': '前端开发工程师',
+    'exp4.b1': '主导 Web 全模块从零架构；Webpack 打包提速 30%、体积减 20%',
+    'exp4.b2': '协助 RN 向 Flutter 迁移；React + Electron 桌面端封装',
+    'exp4.b3': '首屏与接口缓存优化；协助运维提升加载速度',
+    'proj.faypay.tag': '多链钱包 App · 一人开发',
+    'proj.faypay.desc': '独立完成加密钱包全套产品：含 <strong>App 内核心功能</strong>（Mint / Send / Receive / Request、多链资产管理、安全交易），非仅官网。支持 Openverse、Ethereum、BNB Chain、Polygon 等。<a href="https://faypay.com/" target="_blank" rel="noopener">faypay.com</a> 可下载体验。',
+    'proj.kaco.tag': 'DeFi · BSC · 2022 — 2025',
+    'proj.kaco.desc': '波卡链 Kaco 智能合约编写与测试；DeFi Farm / Pool；NFT 碎片化；数据隐私与 KYC 验证模块。',
+    'proj.avault.tag': '2022.07 — 2022.12',
+    'proj.avault.desc': '支持多链多币种的 Vault 复投项目前端开发。',
+    'proj.pp.tag': 'Flutter · 2020 — 2022',
+    'proj.pp.desc': '助记词导入/生成、多链余额与划转、NFT 展示、Uniswap / Caver / Pancake 等 DApp 交互。',
+    'proj.zg.tag': 'RN · 2016 — 2020',
+    'proj.zg.desc': '现货/期货/期权/永续合约、资产管理、行情分析、去中心化冷钱包集成。',
+    'proj.bingo.tag': '链游',
+    'proj.bingo.desc': 'Ethereum 智能合约、Ethers.js 链上交互，响应式 Web / H5 / Telegram 多端接入。',
+    'proj.ow.tag': '插件 · 多链',
+    'proj.ow.desc': '多链插件钱包，Solana / EVM / BTC 生态，稳定功能与完整链路支持。',
+    'edu.school': '浙江工业大学',
+    'edu.degree': '本科 · 影视动画 · 2011 — 2015',
+    'contact.lead': '正在寻找杭州地区的前端 / Web3 机会，欢迎招聘方或合作方联系。',
+    'contact.phone': '电话',
+    'contact.email': '邮箱',
+    'footer': '© 2026 海立婷 · 前端开发工程师',
+    'role.fe': '前端开发工程师',
+  },
+  en: {
+    'meta.title': 'Hailiting | Frontend Engineer',
+    'meta.description': 'Hailiting — 11+ years frontend engineer, AI-assisted development, Web3, blockchain & cross-platform mobile.',
+    'nav.menu': 'Menu',
+    'nav.about': 'About',
+    'nav.skills': 'Skills',
+    'nav.experience': 'Experience',
+    'nav.projects': 'Projects',
+    'nav.contact': 'Contact',
+    'hero.badge': 'Frontend Engineer · 11+ Years · AI-Assisted Dev',
+    'hero.subtitle': 'Flagship <strong><a href="https://faypay.com/" target="_blank" rel="noopener">Faypay</a></strong> multi-chain wallet app (<strong>solo-built</strong>, full in-app features); expert in <strong>AI coding</strong>, <strong>Web3</strong> & cross-platform mobile.',
+    'hero.city': '📍 Target city: Hangzhou',
+    'hero.salary': '💼 Expected: 25–30K CNY',
+    'hero.cta.contact': 'Contact Me',
+    'hero.cta.experience': 'View Experience',
+    'hero.cta.faypay': 'Try Faypay Wallet',
+    'stat.exp': 'Yrs Exp',
+    'stat.fe': 'Yrs Frontend',
+    'stat.game': 'Yrs GameFi',
+    'stat.chain': 'Yrs Blockchain',
+    'section.about': 'Strengths',
+    'section.skills': 'Tech Stack',
+    'section.experience': 'Work Experience',
+    'section.projects': 'Featured Projects',
+    'section.education': 'Education',
+    'section.contact': 'Contact',
+    'ai.title': 'AI Coding · Engineering Velocity',
+    'ai.desc': 'Deep experience with AI tools and LLMs. Integrates <strong>Trae / Cursor</strong> across requirements, coding, testing & refactoring to boost delivery speed.',
+    'adv.mobile.t': 'Cross-Platform Mobile',
+    'adv.mobile.d': '4+ years with React Native / Flutter for iOS & Android — performance and UX focused.',
+    'adv.chain.t': 'Blockchain Development',
+    'adv.chain.d': '3+ years Solidity & Ethereum DeFi; Solana on-chain (Rust), smart contracts & wallet integration.',
+    'adv.wallet.t': 'Browser Wallet Extensions',
+    'adv.wallet.d': 'Led OpenWallet multi-chain extension (Solana, EVM, BTC) for safer, smoother payments.',
+    'adv.game.t': 'Blockchain Games',
+    'adv.game.d': '5+ years GameFi with React + ethers.js; ETH / NFT & Solana asset flows.',
+    'adv.fe.t': 'Frontend Engineering',
+    'adv.fe.d': '8+ years Flutter, HTML5, CSS3, JS/TS; large-scale React, componentization & tooling.',
+    'adv.be.t': 'Backend & Frameworks',
+    'adv.be.d': 'Node.js + Express/Koa for scalable APIs, quality, performance & fast iteration.',
+    'skill.ai': 'AI-Assisted Development',
+    'skill.fe': 'Frontend & Mobile',
+    'skill.web3': 'Blockchain & Web3',
+    'skill.be': 'Backend & Tooling',
+    'tag.llm': 'LLMs',
+    'tag.aicode': 'AI Coding',
+    'tag.req': 'Requirements',
+    'tag.test': 'Auto Testing',
+    'tag.refactor': 'Refactoring',
+    'tag.contract': 'Smart Contracts',
+    'tag.multichain': 'Multi-Chain Wallet',
+    'tag.im': 'IM Client',
+    'tag.cache': 'API Caching',
+    'tag.perf': 'Performance',
+    'exp1.date': 'Mar 2025 — Present',
+    'exp1.role': 'Frontend Engineer',
+    'exp1.b1': 'OpenWallet multi-chain browser extension (Solana, EVM, BTC)',
+    'exp1.b2': 'Flutter multi-chain app (Solana, EVM, BTC, TRON, TON)',
+    'exp1.b3': 'DeFi products; IM client development & maintenance',
+    'exp1.h': 'Led multiple products from 0→1; team training & delivery excellence',
+    'exp2.date': 'Jan 2024 — Mar 2025',
+    'exp2.role': 'Lead Frontend',
+    'exp2.b1': 'Multi-chain wallet extensions (EVM, Solana, BTC)',
+    'exp2.b2': 'Bingo on-chain game: React + Ethers.js, Web / H5 / Telegram bot',
+    'exp2.b3': 'Cocos game series: survival, merge whale, snake, ludo',
+    'exp2.b4': 'Zytron platform UI, TVL analytics & performance',
+    'exp3.date': 'Nov 2021 — Dec 2023',
+    'exp3.role': 'Frontend Engineer',
+    'exp3.b1': 'Architected multiple Web3 apps with React / RN',
+    'exp3.b2': '0→1 Web3 projects; Node.js backend',
+    'exp3.b3': 'Release pipeline, DApp UX & visual polish',
+    'exp4.date': 'Nov 2018 — Oct 2021',
+    'exp4.role': 'Frontend Engineer',
+    'exp4.b1': 'Full web architecture; Webpack 30% faster, 20% smaller bundles',
+    'exp4.b2': 'RN→Flutter migration; React + Electron desktop app',
+    'exp4.b3': 'First-screen caching; ops collaboration for faster loads',
+    'proj.faypay.tag': 'Multi-Chain Wallet · Solo',
+    'proj.faypay.desc': 'Solo-built Faypay crypto wallet: full <strong>in-app</strong> features (mint/send/receive/request, multi-chain assets, secure txs) — not just a landing page. Openverse, Ethereum, BNB, Polygon. Download at <a href="https://faypay.com/" target="_blank" rel="noopener">faypay.com</a>.',
+    'proj.kaco.tag': 'DeFi · BSC · 2022 — 2025',
+    'proj.kaco.desc': 'Kaco smart contracts; DeFi farm/pool; NFT fractionalization; privacy & KYC modules.',
+    'proj.avault.tag': 'Jul — Dec 2022',
+    'proj.avault.desc': 'Multi-chain vault auto-compounding frontend.',
+    'proj.pp.tag': 'Flutter · 2020 — 2022',
+    'proj.pp.desc': 'Mnemonic wallet, multi-chain balances/transfers, NFTs, Uniswap/Caver/Pancake DApps.',
+    'proj.zg.tag': 'RN · 2016 — 2020',
+    'proj.zg.desc': 'Spot/futures/options/perps, portfolio, charts, cold-wallet integration.',
+    'proj.bingo.tag': 'GameFi',
+    'proj.bingo.desc': 'Ethereum contracts, Ethers.js, responsive Web / H5 / Telegram.',
+    'proj.ow.tag': 'Extension · Multi-Chain',
+    'proj.ow.desc': 'OpenWallet extension across Solana / EVM / BTC.',
+    'edu.school': 'Zhejiang University of Technology',
+    'edu.degree': 'B.A. Animation · 2011 — 2015',
+    'contact.lead': 'Open to frontend / Web3 roles in Hangzhou. Recruiters & partners welcome.',
+    'contact.phone': 'Phone',
+    'contact.email': 'Email',
+    'footer': '© 2026 Hailiting · Frontend Engineer',
+    'role.fe': 'Frontend Engineer',
+  },
+};
+
+function getLang() {
+  const saved = localStorage.getItem('lang');
+  if (saved === 'en' || saved === 'zh') return saved;
+  const browser = (navigator.language || '').toLowerCase();
+  return browser.startsWith('zh') ? 'zh' : 'en';
+}
+
+function applyLang(lang) {
+  const dict = I18N[lang];
+  if (!dict) return;
+
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', dict['meta.description']);
+  document.title = dict['meta.title'];
+
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] != null) el.textContent = dict[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key] != null) el.innerHTML = dict[key];
+  });
+
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang);
+  });
+
+  localStorage.setItem('lang', lang);
+}
+
+function initI18n() {
+  const lang = getLang();
+  applyLang(lang);
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = btn.getAttribute('data-lang');
+      if (next) applyLang(next);
+    });
+  });
+}

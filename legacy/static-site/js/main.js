@@ -1,3 +1,5 @@
+initI18n();
+
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const nav = document.getElementById('nav');
@@ -20,13 +22,16 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.01, rootMargin: '0px' }
 );
 
-document.querySelectorAll('.advantage-card, .timeline-item, .project-card').forEach((el) => {
+/* 词云 Canvas 不参与淡入（避免手机端 opacity:0）；其余区块保留滚动入场 */
+document.querySelectorAll('.ai-highlight, .advantage-card, .timeline-item, .project-card').forEach((el) => {
+  /* .ai-about-panel 不参与淡入，保证 AI 模块始终可见 */
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
